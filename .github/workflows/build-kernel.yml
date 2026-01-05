@@ -67,7 +67,7 @@ jobs:
         export CROSS_COMPILE=aarch64-linux-gnu-
         export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
         make oldconfig
-        make -j$(nproc) KCFLAGS="-Wno-error=format"
+        make -j$(nproc) KCFLAGS="-Wno-error"
     
     - name: Prepare AnyKernel3
       run: |
