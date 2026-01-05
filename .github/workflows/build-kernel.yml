@@ -51,6 +51,13 @@ jobs:
         sed -i 's/KSU_VERSION_TAG_FALLBACK := v0.0.1/KSU_VERSION_TAG_FALLBACK := v3.0.0-21-g0356464d/' Kbuild
         cd ../..
     
+    - name: Disable WALT trace to fix compilation
+      run: |
+        # Remove trace.c from WALT compilation
+        sed -i '/trace\.o/d' kernel/sched/walt/Makefile
+        # Comment out trace includes
+        sed -i 's/#include "trace\.c"/#define SKIP_TRACE/g' kernel/sched/walt/*.c || true
+    
     - name: Build kernel
       run: |
         export ARCH=arm64
