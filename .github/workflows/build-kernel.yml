@@ -25,7 +25,7 @@ jobs:
     - name: Setup environment
       run: |
         sudo apt-get update
-        sudo apt-get install -y bc bison build-essential ccache curl flex gcc g++ git libncurses5-dev libssl-dev python3 python3-pip zip zlib1g-dev libelf-dev
+        sudo apt-get install -y bc bison build-essential ccache curl flex gcc g++ git libncurses5-dev libssl-dev python3 python3-pip zip zlib1g-dev libelf-dev gcc-aarch64-linux-gnu
     
     - name: Download Proton Clang toolchain
       run: |
